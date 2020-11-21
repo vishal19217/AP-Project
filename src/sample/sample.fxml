@@ -1,8 +1,22 @@
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.GridPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="503.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" />
+      <ImageView fitHeight="628.0" fitWidth="504.0" nodeOrientation="INHERIT" pickOnBounds="true">
+         <image>
+            <Image url="@black.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="253.0" prefWidth="503.0">
+         <children>
+            <Circle fill="#dadaeb00" layoutX="252.0" layoutY="192.0" radius="130.0" stroke="#1643e557" strokeType="INSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 50;" />
+            <Circle fill="#1f93ff00" layoutX="252.0" layoutY="192.0" radius="100.0" stroke="#09b80d" strokeType="INSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 50;" />
+            <Circle fill="#1f93ff00" layoutX="252.0" layoutY="192.0" radius="70.0" stroke="#f00b0b" strokeType="INSIDE" strokeWidth="10.0" style="-fx-rotate: 50;" />
+         </children></AnchorPane>
+   </children>
+</StackPane>
