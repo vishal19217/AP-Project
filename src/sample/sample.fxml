@@ -20,7 +20,7 @@
             <Circle fx:id="circle2" fill="#1f93ff00" layoutX="252.0" layoutY="192.0" radius="100.0" stroke="#09b80d" strokeType="INSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 50;" />
             <Circle fx:id="circle3" fill="#1f93ff00" layoutX="252.0" layoutY="192.0" radius="70.0" stroke="#f00b0b" strokeType="INSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 50;" />
             <Button layoutX="37.0" layoutY="554.0" mnemonicParsing="false" style="-fx-background-color: yellow;" text="Resume" />
-            <Button layoutX="212.0" layoutY="554.0" mnemonicParsing="false" style="-fx-background-color: crimson yellow;" text="New Game" />
+            <Button fx:id="button2" layoutX="212.0" layoutY="554.0" mnemonicParsing="false" onAction="#load_New_Game" style="-fx-background-color: crimson yellow;" text="New Game" />
             <Button layoutX="382.0" layoutY="554.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: yellow;" text="Exit" />
             <Label fx:id="label1" graphicTextGap="50.0" layoutX="81.0" layoutY="386.0" prefHeight="78.0" prefWidth="445.0" text="Color Switch Game" textFill="#fa25ab94">
                <font>
