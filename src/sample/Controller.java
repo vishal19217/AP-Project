@@ -7,10 +7,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -30,6 +32,8 @@ public class Controller implements Initializable {
     private Label label1;
     @FXML
     private Button button2;
+    @FXML
+    private StackPane rootPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,10 +47,26 @@ public class Controller implements Initializable {
       ParallelTransition transition3 = new ParallelTransition(transition,transition1,transition2);
         transition3.setCycleCount(ParallelTransition.INDEFINITE);
         transition3.play();
+        button2.setOnAction(event -> {
+            try {
+                load_New_Game();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
     public void load_New_Game() throws IOException {
         Parent secondView;
         secondView = (StackPane) FXMLLoader.load(getClass().getResource("New_Game.fxml"));
+        Scene newScene = new Scene(secondView);
+        Stage curStage = (Stage) rootPane.getScene().getWindow();
+        curStage.setScene(newScene);
+        curStage.show();
+
+//        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//        primaryStage.setTitle("Hello World");
+//        primaryStage.setScene(new Scene(root, 300, 275));
+//        primaryStage.show();
 
     }
 }
