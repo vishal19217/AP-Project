@@ -33,6 +33,11 @@ public class Controller implements Initializable {
     @FXML
     private Button button2;
     @FXML
+    private Button button1;
+    @FXML
+    private Button button3;
+
+    @FXML
     private StackPane rootPane;
 
     @Override
@@ -54,6 +59,20 @@ public class Controller implements Initializable {
                 e.printStackTrace();
             }
         });
+        button1.setOnAction(event -> {
+            try {
+                resume_Game();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        button3.setOnAction(event -> {
+            try {
+                exit_Game();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
     public void load_New_Game() throws IOException {
         Parent secondView;
@@ -67,6 +86,12 @@ public class Controller implements Initializable {
 //        primaryStage.setTitle("Hello World");
 //        primaryStage.setScene(new Scene(root, 300, 275));
 //        primaryStage.show();
+
+    }
+    public void resume_Game() throws IOException{
+
+    }
+    public void exit_Game() throws IOException{
 
     }
 }
