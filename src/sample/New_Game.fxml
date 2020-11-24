@@ -2,13 +2,21 @@
 
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="469.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_New_Game">
    <children>
-      <ImageView fitHeight="622.0" fitWidth="467.0" pickOnBounds="true">
+      <ImageView fitHeight="618.0" fitWidth="464.0" pickOnBounds="true">
          <image>
             <Image url="@black.png" />
-         </image>
-      </ImageView>
+         </image></ImageView>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Arc fx:id="middleArc1" centerX="170.0" centerY="230.0" fill="#ff052d00" layoutX="62.0" layoutY="-43.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="180.0" stroke="#f50dc7" strokeLineCap="BUTT" strokeWidth="20.0" />
+            <Arc fx:id="middleArc11" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="62.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="90.0" stroke="#00ffee" strokeLineCap="BUTT" strokeWidth="20.0" />
+            <Arc fx:id="middleArc111" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="63.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="-90.0" stroke="#0019ff" strokeLineCap="BUTT" strokeWidth="20.0" />
+            <Arc fx:id="middleArc1111" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="63.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="360.0" stroke="YELLOW" strokeLineCap="BUTT" strokeWidth="20.0" />
+         </children>
+      </AnchorPane>
    </children>
 </StackPane>
