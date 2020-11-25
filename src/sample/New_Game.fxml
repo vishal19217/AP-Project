@@ -12,10 +12,15 @@
          </image></ImageView>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Arc fx:id="middleArc1" centerX="170.0" centerY="230.0" fill="#ff052d00" layoutX="62.0" layoutY="-43.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="180.0" stroke="#f50dc7" strokeLineCap="BUTT" strokeWidth="20.0" />
-            <Arc fx:id="middleArc11" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="62.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="90.0" stroke="#00ffee" strokeLineCap="BUTT" strokeWidth="20.0" />
-            <Arc fx:id="middleArc111" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="63.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="-90.0" stroke="#0019ff" strokeLineCap="BUTT" strokeWidth="20.0" />
-            <Arc fx:id="middleArc1111" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="63.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="360.0" stroke="YELLOW" strokeLineCap="BUTT" strokeWidth="20.0" />
+            <Arc fx:id="arc2" centerX="170.0" centerY="230.0" fill="#ff052d00" layoutX="62.0" layoutY="-43.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="180.0" stroke="#f50dc7" strokeLineCap="BUTT" strokeWidth="20.0" />
+            <Arc fx:id="arc3" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="62.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="90.0" stroke="#00ffee" strokeLineCap="BUTT" strokeWidth="20.0" />
+            <Arc fx:id="arc4" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="63.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="-90.0" stroke="#0019ff" strokeLineCap="BUTT" strokeWidth="20.0" />
+            <Arc fx:id="arc1" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="63.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="360.0" stroke="YELLOW" strokeLineCap="BUTT" strokeWidth="20.0" />
+            <ImageView fitHeight="78.0" fitWidth="81.0" layoutX="194.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@star_PNG1597.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
