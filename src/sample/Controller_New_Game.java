@@ -6,16 +6,17 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Arc;
+import javafx.scene.shape.*;
 
 import java.io.IOException;
 import java.net.URL;
 
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 
 import javax.swing.text.html.ImageView;
@@ -35,43 +36,33 @@ public class Controller_New_Game implements Initializable {
     @FXML
     Button playButton;
     @FXML
-    ImageView imageView;
-    @FXML
     StackPane stackPane;
+    @FXML
+    AnchorPane anchor;
+    @FXML
+    Label scoreLabel;
+    int flag=0;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        button2.setOnAction(event -> {
-//            try {
-//                load_New_Game();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
-        Timeline animation = new Timeline(
-                new KeyFrame(Duration.ZERO, new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle(), Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(4), new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle() - 360, Interpolator.LINEAR)),
-                new KeyFrame(Duration.ZERO, new KeyValue(arc2.startAngleProperty(), arc2.getStartAngle(), Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(4), new KeyValue(arc2.startAngleProperty(), arc2.getStartAngle() - 360, Interpolator.LINEAR)),
-                new KeyFrame(Duration.ZERO, new KeyValue(arc3.startAngleProperty(), arc3.getStartAngle(), Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(4), new KeyValue(arc3.startAngleProperty(), arc3.getStartAngle() - 360, Interpolator.LINEAR)),
-                new KeyFrame(Duration.ZERO, new KeyValue(arc4.startAngleProperty(), arc4.getStartAngle(), Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(4), new KeyValue(arc4.startAngleProperty(), arc4.getStartAngle() - 360, Interpolator.LINEAR)));
-                //new KeyFrame(Duration.seconds(3), new KeyValue(ball.centerYProperty(), 250))
 
-        Ball myBall = new Ball(ball);
-        myBall.moveBall(playButton);
+        Timeline animation = new Timeline();
+        CircleObstacle c1 = new CircleObstacle(arc1,arc2,arc3,arc4);
+        // add circle obstacle to timeline
+        c1.addObstacle(animation);
+
+        Ball myBall = new Ball(ball,scoreLabel);
+        myBall.setMyObstacle(c1);
+        // for moving ball and detecting ball bounce when playButton is pressed
+        myBall.moveBall();
         playButton.setOnAction(event -> {
             boolean isPressed = bounceBall();
             myBall.bounceBall();
         });
-        if(ball.getLayoutY()>=playButton.getLayoutY()){
-            ball.setLayoutY(playButton.getLayoutY());
-        }
+
         animation.setCycleCount(Animation.INDEFINITE);
         animation.play();
-
-
     }
+
     public boolean bounceBall(){
        return true;
     }
