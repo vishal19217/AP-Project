@@ -22,7 +22,7 @@ public class CircleObstacle extends Obstacle {
 
     }
     @Override
-    public void addObstacle(Timeline timeline){
+    public void addObstacle(AnchorPane ap,Timeline timeline){
         timeline.getKeyFrames().addAll(
                 new KeyFrame(Duration.ZERO, new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle(), Interpolator.LINEAR)),
                 new KeyFrame(Duration.seconds(4), new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle() - 360, Interpolator.LINEAR)),
