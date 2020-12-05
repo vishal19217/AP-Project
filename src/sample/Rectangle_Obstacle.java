@@ -38,6 +38,7 @@ public class Cross_Obstacle extends Obstacle {
 	r2.setFill(Color.YELLOW);
 	r3.setFill(Color.GREEN);
 	r4.setFill(Color.BLUE);
+	   t1.getChildren().addAll(r1,r2,r3,r4);
 	Mytimer t = new Mytimer();t.start();
       
        
