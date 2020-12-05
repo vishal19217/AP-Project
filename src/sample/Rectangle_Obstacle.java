@@ -1,4 +1,4 @@
-package application;
+package sample;
 import java.util.*;
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
