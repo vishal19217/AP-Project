@@ -78,6 +78,7 @@ public class Triangle_Obstacle extends Obstacle {
       Group root = new Group(pu,line,linee1,linee2); 
 //      RotateTransition uu = new RotateTransition(Duration.seconds(3),root);uu.setCycleCount(RotateTransition.INDEFINITE);
 //      uu.setFromAngle(0);uu.setToAngle(360);uu.play();
+	   stage.getChildren().add(root);
       ta.getKeyFrames().addAll(
             new KeyFrame(Duration.ZERO, new KeyValue(root.rotateProperty(), 0, Interpolator.LINEAR)),
             new KeyFrame(Duration.seconds(3), new KeyValue(root.rotateProperty(), 360, Interpolator.LINEAR))
