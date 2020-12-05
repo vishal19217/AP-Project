@@ -46,7 +46,7 @@ public class Cross_Obstacle extends Obstacle {
       
          
       //Creating a Group object  
-      Group root = new Group(line,line1,line2,line3); 
+      Group root = new Group(line,line1,line2,line3); t1.getChildren().add(root);
 //      RotateTransition uu = new RotateTransition(Duration.seconds(3),root);uu.setCycleCount(RotateTransition.INDEFINITE);
 //      uu.setFromAngle(0);uu.setToAngle(360);uu.play();
       tl.getKeyFrames().addAll(
