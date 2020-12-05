@@ -37,11 +37,11 @@ public class Triangle_Obstacle extends Obstacle {
         
       //Creating 1st line 
 //      LineTo line1 = new LineTo(250, 150);
-      line = new Line(150,150,250,150);
-      line.setStroke(Color.DARKBLUE);line.setStrokeWidth(15);
-      linee1 = new Line(250,150,200,150-50*1.732);
-      linee1.setStroke(Color.DARKRED);linee1.setStrokeWidth(10);
-      linee2 = new Line(200,150-50*1.732,150,150);
+      line = new Line(150,150,350,150);
+      line.setStroke(Color.BLUE);line.setStrokeWidth(15);
+      linee1 = new Line(350,250,250,250-100*1.732);
+      linee1.setStroke(Color.RED);linee1.setStrokeWidth(10);
+      linee2 = new Line(250,250-100*1.732,150,250);
       linee2.setStroke(Color.YELLOW);linee2.setStrokeWidth(10);
       
        
@@ -59,14 +59,14 @@ public class Triangle_Obstacle extends Obstacle {
 //      path.getElements().addAll(line1, line2, line3); 
 //      path.setStroke(Color.DARKRED);path.setStrokeWidth(10);
       Path pu = new Path();
-      MoveTo moveTos = new MoveTo(140, 160);
-      LineTo line1s = new LineTo(260, 160);  
+      MoveTo moveTos = new MoveTo(140, 260);
+      LineTo line1s = new LineTo(360, 260);  
       
       //Creating 2nd line 
-      LineTo line2s = new LineTo(200,160-60*1.732);       
+      LineTo line2s = new LineTo(250,260-110*1.732);       
        
       //Creating 3rd line 
-      LineTo line3s = new LineTo(140,160);pu.getElements().add(moveTos);
+      LineTo line3s = new LineTo(140,260);pu.getElements().add(moveTos);
       pu.getElements().addAll(line1s,line2s,line3s);
       
       
