@@ -36,19 +36,25 @@ public class Controller_New_Game implements Initializable {
     @FXML
     Button playButton;
     @FXML
-    StackPane stackPane;
+   StackPane stackPane;
     @FXML
     AnchorPane anchor;
     @FXML
     Label scoreLabel;
     int flag=0;
+    public StackPane getStackPane(){
+        return stackPane;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         Timeline animation = new Timeline();
         CircleObstacle c1 = new CircleObstacle(arc1,arc2,arc3,arc4);
         // add circle obstacle to timeline
-        c1.addObstacle(animation);
+        c1.addObstacle(animation,anchor);
+        Obstacle t1 = new TriangleObstacle();
+        t1.addObstacle(animation,anchor);
+        Obstacle t3 = new Cross_Obstacle();
+        t3.addObstacle(animation,anchor);
 
         Ball myBall = new Ball(ball,scoreLabel);
         myBall.setMyObstacle(c1);

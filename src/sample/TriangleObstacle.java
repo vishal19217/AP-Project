@@ -25,10 +25,11 @@ import javafx.stage.Stage;
 import javafx.scene.shape.*; 
 import javafx.scene.layout.*;
          
-public class Triangle_Obstacle extends Obstacle { 
+public class TriangleObstacle extends Obstacle {
 	private Line line,linee1,linee2;
-   @Override 
-   public void addObstacle(AnchorPane stage,Timeline ta) { 
+	Group root = new Group();
+   @Override
+   public void addObstacle(Timeline ta,AnchorPane anchorPane) {
       //Creating a Path 
       Path path = new Path(); 
        
@@ -37,15 +38,16 @@ public class Triangle_Obstacle extends Obstacle {
         
       //Creating 1st line 
 //      LineTo line1 = new LineTo(250, 150);
-      line = new Line(150,150,250,150);
-      line.setStroke(Color.DARKBLUE);line.setStrokeWidth(15);
-      linee1 = new Line(250,150,200,150-50*1.732);
-      linee1.setStroke(Color.DARKRED);linee1.setStrokeWidth(10);
-      linee2 = new Line(200,150-50*1.732,150,150);
-      linee2.setStroke(Color.YELLOW);linee2.setStrokeWidth(10);
-      
-       
-      //Creating 2nd line 
+       line = new Line(150,250,350,250);
+       line.setStroke(Color.BLUE);line.setStrokeWidth(15);
+       linee1 = new Line(350,250,250,250-100*1.732);
+       linee1.setStroke(Color.RED);linee1.setStrokeWidth(10);
+       linee2 = new Line(250,250-100*1.732,150,250);
+       linee2.setStroke(Color.YELLOW);linee2.setStrokeWidth(10);
+
+
+
+       //Creating 2nd line
 //      LineTo line2 = new LineTo(200,150-50*1.732);       
        
       //Creating 3rd line 
@@ -59,14 +61,14 @@ public class Triangle_Obstacle extends Obstacle {
 //      path.getElements().addAll(line1, line2, line3); 
 //      path.setStroke(Color.DARKRED);path.setStrokeWidth(10);
       Path pu = new Path();
-      MoveTo moveTos = new MoveTo(140, 160);
-      LineTo line1s = new LineTo(260, 160);  
+      MoveTo moveTos = new MoveTo(140, 260);
+      LineTo line1s = new LineTo(360, 260);
       
       //Creating 2nd line 
-      LineTo line2s = new LineTo(200,160-60*1.732);       
+      LineTo line2s = new LineTo(250,260-110*1.732);
        
       //Creating 3rd line 
-      LineTo line3s = new LineTo(140,160);pu.getElements().add(moveTos);
+      LineTo line3s = new LineTo(140,260);pu.getElements().add(moveTos);
       pu.getElements().addAll(line1s,line2s,line3s);
       
       
@@ -75,12 +77,13 @@ public class Triangle_Obstacle extends Obstacle {
       
          
       //Creating a Group object  
-      Group root = new Group(pu,line,linee1,linee2); 
+       root.getChildren().addAll(pu,line,linee1,linee2);
+      anchorPane.getChildren().add(root);
 //      RotateTransition uu = new RotateTransition(Duration.seconds(3),root);uu.setCycleCount(RotateTransition.INDEFINITE);
 //      uu.setFromAngle(0);uu.setToAngle(360);uu.play();
       ta.getKeyFrames().addAll(
             new KeyFrame(Duration.ZERO, new KeyValue(root.rotateProperty(), 0, Interpolator.LINEAR)),
-            new KeyFrame(Duration.seconds(3), new KeyValue(root.rotateProperty(), 360, Interpolator.LINEAR))
+            new KeyFrame(Duration.seconds(4), new KeyValue(root.rotateProperty(), 360, Interpolator.LINEAR))
 //            new KeyFrame(Duration.ZERO, new KeyValue(arc2.startAngleProperty(), arc2.getStartAngle(), Interpolator.LINEAR)),
             
     );
@@ -119,4 +122,9 @@ public class Triangle_Obstacle extends Obstacle {
            return false;
        }
    }
-}       
+
+    @Override
+    public void moveDown() {
+
+    }
+}
