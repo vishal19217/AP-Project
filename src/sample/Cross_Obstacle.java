@@ -1,4 +1,4 @@
-package application;
+package sample;
 import java.util.ArrayList;
 
 import javafx.scene.shape.Shape;
