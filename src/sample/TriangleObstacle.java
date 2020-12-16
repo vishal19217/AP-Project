@@ -28,9 +28,14 @@ import javafx.scene.layout.*;
 public class TriangleObstacle extends Obstacle {
 	private Line line,linee1,linee2;
 	Group root = new Group();
+	public AnchorPane anchorPane;
+    Timeline ta1 = new Timeline();
+
    @Override
    public void addObstacle(Timeline ta,AnchorPane anchorPane) {
-      //Creating a Path 
+      //Creating a Path
+       this.anchorPane = anchorPane;
+       isVisible = true;
       Path path = new Path(); 
        
       //Moving to the starting point 
@@ -41,7 +46,7 @@ public class TriangleObstacle extends Obstacle {
        line = new Line(150,250,350,250);
        line.setStroke(Color.BLUE);line.setStrokeWidth(15);
        linee1 = new Line(350,250,250,250-100*1.732);
-       linee1.setStroke(Color.RED);linee1.setStrokeWidth(10);
+       linee1.setStroke(Color.CRIMSON);linee1.setStrokeWidth(10);
        linee2 = new Line(250,250-100*1.732,150,250);
        linee2.setStroke(Color.YELLOW);linee2.setStrokeWidth(10);
 
@@ -78,21 +83,30 @@ public class TriangleObstacle extends Obstacle {
          
       //Creating a Group object  
        root.getChildren().addAll(pu,line,linee1,linee2);
-      anchorPane.getChildren().add(root);
+       root.setLayoutY(-300);
+      //anchorPane.getChildren().add(root);
 //      RotateTransition uu = new RotateTransition(Duration.seconds(3),root);uu.setCycleCount(RotateTransition.INDEFINITE);
 //      uu.setFromAngle(0);uu.setToAngle(360);uu.play();
-      ta.getKeyFrames().addAll(
+
+       ta.getKeyFrames().addAll(
             new KeyFrame(Duration.ZERO, new KeyValue(root.rotateProperty(), 0, Interpolator.LINEAR)),
             new KeyFrame(Duration.seconds(4), new KeyValue(root.rotateProperty(), 360, Interpolator.LINEAR))
 //            new KeyFrame(Duration.ZERO, new KeyValue(arc2.startAngleProperty(), arc2.getStartAngle(), Interpolator.LINEAR)),
             
     );
-    
+//            ta1.play();
+//            ta1.setCycleCount(Animation.INDEFINITE);
          
       //Creating a scene object 
                
-   } 
- @Override  
+   }
+
+    @Override
+    public void initialpos() {
+        root.setLayoutY(-160);
+    }
+
+    @Override
    public int checkCollision(Circle ball){
        ArrayList<Line>components = new ArrayList<Line>();
        components.add(line);components.add(linee1);
@@ -112,6 +126,12 @@ public class TriangleObstacle extends Obstacle {
        return -1;
 
    }
+    public void resetpos(){
+        root.setLayoutY(-160);
+        root.setVisible(true);
+        isVisible = true;
+        anchorPane.getChildren().add(root);
+    }
 
    public boolean checkCorrectCollision(Line ls,Circle ball) {
        //System.out.println(ball.getFill()+"   "+arc.getStroke());
@@ -125,6 +145,21 @@ public class TriangleObstacle extends Obstacle {
 
     @Override
     public void moveDown() {
+
+        // tl.setTranslateY(tl.getLayoutY()+3);
+        if(root.getBoundsInParent().getMinY()>=400){
+//            ta1.stop();
+            isVisible = false;
+            anchorPane.getChildren().remove(root);
+            root.setVisible(false);
+            System.out.println("Traingle removed");
+          //  anchorPane.getChildren().remove(root);
+//
+            //anchorPane.getChildren().remove(tl);
+
+
+        }
+        root.setLayoutY(root.getLayoutY()+20);
 
     }
 }

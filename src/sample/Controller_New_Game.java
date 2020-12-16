@@ -16,10 +16,8 @@ import javafx.scene.shape.*;
 
 import java.io.IOException;
 import java.net.URL;
-
-import javafx.util.Duration;
-
-import javax.swing.text.html.ImageView;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class Controller_New_Game implements Initializable {
@@ -36,43 +34,91 @@ public class Controller_New_Game implements Initializable {
     @FXML
     Button playButton;
     @FXML
-   StackPane stackPane;
+    StackPane stackPane;
     @FXML
     AnchorPane anchor;
     @FXML
     Label scoreLabel;
-    int flag=0;
-    public StackPane getStackPane(){
+    int flag = 0;
+    int i=0;
+    private Obstacle currentObstacle,nextObstacle;
+    ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
+    public StackPane getStackPane() {
         return stackPane;
     }
+
+    //final //
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Timeline animation = new Timeline();
-        CircleObstacle c1 = new CircleObstacle(arc1,arc2,arc3,arc4);
-        // add circle obstacle to timeline
-        c1.addObstacle(animation,anchor);
-        Obstacle t1 = new TriangleObstacle();
-        t1.addObstacle(animation,anchor);
-        Obstacle t3 = new Cross_Obstacle();
-        t3.addObstacle(animation,anchor);
+        //animation.
+        Obstacle o1 = new CircleObstacle(arc1, arc2, arc3, arc4);
+        Obstacle o2 = new TriangleObstacle();
+        Obstacle o3 = new CrossObstacle();
+        Obstacle o4 = new RectangleObstacle();
 
-        Ball myBall = new Ball(ball,scoreLabel);
-        myBall.setMyObstacle(c1);
+        // add all obstacles to list
+        obstacles.add(o1);o1.addObstacle(animation,anchor);
+        obstacles.add(o2);o2.addObstacle(animation,anchor);
+        obstacles.add(o3);o3.addObstacle(animation,anchor);
+
+        i=0;
+        currentObstacle = obstacles.get((i++));
+
+        if(i==3){
+            i=0;
+        }
+
+
+         nextObstacle = obstacles.get((i++));
+         nextObstacle.resetpos();
+
+         if(i==3){
+            i=0;
+        }
+
+        Ball myBall = new Ball(ball, scoreLabel);
+        myBall.setMyObstacle(currentObstacle);
         // for moving ball and detecting ball bounce when playButton is pressed
         myBall.moveBall();
         playButton.setOnAction(event -> {
             boolean isPressed = bounceBall();
             myBall.bounceBall();
+           currentObstacle.moveDown();
+
+            nextObstacle.moveDown();
+           // int f = 0;
+
+            //System.out.println(currentObstacle.isVisible);
+            if (!currentObstacle.isVisible) {
+                System.out.println("i am moving");
+
+                changeObstacle(animation,anchor,myBall);
+            }
+
         });
 
         animation.setCycleCount(Animation.INDEFINITE);
         animation.play();
     }
 
-    public boolean bounceBall(){
-       return true;
+    public boolean bounceBall() {
+        return true;
     }
-    }
+    int t=0;
+    public void changeObstacle(Timeline t1,AnchorPane a,Ball myBall) {
+        t++;
+        currentObstacle = nextObstacle;
+        System.out.println(t);
+        nextObstacle = obstacles.get(i++);
+        nextObstacle.resetpos();
+        myBall.setMyObstacle(currentObstacle);
 
+        if(i==3){
+            i=0;
+        }
+
+    }
+}
 
 

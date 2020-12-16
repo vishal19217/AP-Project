@@ -28,7 +28,7 @@
                   <Image url="@pause.png" />
                </image></ImageView>
             <Circle fx:id="ball" fill="YELLOW" layoutX="224.0" layoutY="525.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button fx:id="playButton" layoutX="174.0" layoutY="585.0" mnemonicParsing="false" onAction="#bounceBall" prefHeight="26.0" prefWidth="88.0" text="play" />
+            <Button fx:id="playButton" layoutX="10.0" layoutY="516.0" mnemonicParsing="false" onAction="#bounceBall" prefHeight="95.0" prefWidth="81.0" text="play" />
             <ImageView fitHeight="67.0" fitWidth="61.0" layoutX="380.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Save_Game-512.png" />

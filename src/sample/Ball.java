@@ -71,7 +71,7 @@ class Ball {
                     setMyScore();
                 }
                 else if(check == 0){
-                    //    //System.out.println("Wrong collision");
+                    //System.out.println("Wrong collision");
                 }
 
             }

@@ -28,30 +28,40 @@ public class CrossObstacle extends Obstacle {
     private Rectangle line,line1,line2,line3,recs,recs1,recs2,recs3;
     Group tl = new Group();
     Group root = new Group();
+    AnchorPane anchorPane ;
+    Timeline tl1 = new Timeline();
+
+    @Override
+    public void initialpos(){
+        tl.setLayoutY(-300);
+        root.setLayoutY(-300);
+    }
    
 	@Override 
-   public void addObstacle(Timeline tl1,AnchorPane anchorPane) {
-
+   public void addObstacle(Timeline tll,AnchorPane anchorPane) {
+	    isVisible = true;
+        this.anchorPane = anchorPane;
         line = new Rectangle(120-110,160,110,15);
         line.setFill(Color.BLUE);
         line1 = new Rectangle(245-110,160,110,15);
-        line1.setFill(Color.RED);
+        line1.setFill(Color.CRIMSON);
+
         line2 = new Rectangle(230-110,175,15,110);
         line2.setFill(Color.YELLOW);
         line3 = new Rectangle(230-110,50,15,110);
-        line3.setFill(Color.GREEN);
+        line3.setFill(Color.DARKVIOLET);
         recs = new Rectangle(345-110,160,110,15);
-        recs.setFill(Color.RED);
+        recs.setFill(Color.CRIMSON);
         recs1 = new Rectangle(470-110,160,110,15);
         recs1.setFill(Color.BLUE);
         recs2 = new Rectangle(455-110,175,15,110);
         recs2.setFill(Color.YELLOW);
         recs3 = new Rectangle(455-110,50,15,110);
-        recs3.setFill(Color.GREEN);
+        recs3.setFill(Color.DARKVIOLET);
 
 
-
-
+        root.setLayoutY(root.getLayoutY()-400);
+        tl.setLayoutY(tl.getLayoutY()-400);
 
 
 
@@ -59,19 +69,32 @@ public class CrossObstacle extends Obstacle {
       //Creating a Group object  
       root.getChildren().addAll(line,line1,line2,line3);
 
-//      RotateTransition uu = new RotateTransition(Duration.seconds(3),root);uu.setCycleCount(RotateTransition.INDEFINITE);
-//      uu.setFromAngle(0);uu.setToAngle(360);uu.play();
-        anchorPane.getChildren().add(root);
-        anchorPane.getChildren().add(tl);
 
-        root.setTranslateX(anchorPane.getLayoutX());
-        tl.setTranslateX(anchorPane.getLayoutX());
-        tl1.getKeyFrames().addAll(
+
+
+        tll.getKeyFrames().addAll(
             new KeyFrame(Duration.ZERO, new KeyValue(root.rotateProperty(), 0, Interpolator.LINEAR)),
             new KeyFrame(Duration.seconds(4), new KeyValue(root.rotateProperty(), 360, Interpolator.LINEAR)),
         new KeyFrame(Duration.ZERO, new KeyValue(tl.rotateProperty(), 0, Interpolator.LINEAR)),
                 new KeyFrame(Duration.seconds(4), new KeyValue(tl.rotateProperty(), -360, Interpolator.LINEAR)));
-	}
+
+
+
+
+
+//        System.out.println("cross");
+       /// anchorPane.getChildren().add(root);
+        //anchorPane.getChildren().add(tl);
+    }
+    public void resetpos(){
+        System.out.println("mei cross hu");
+        anchorPane.getChildren().add(tl);
+        anchorPane.getChildren().add(root);
+        tl.setLayoutY(-200);
+        root.setLayoutY(-200);
+        //tl.setLayoutY();
+        isVisible =true;
+    }
 @Override
 public int checkCollision(Circle ball) {
 	ArrayList<Rectangle> compo = new ArrayList<>();
@@ -102,9 +125,20 @@ public boolean checkCorrectCollision(Rectangle ls, Circle ball) {
         return false;
     }
 }
-
+    int tot_distance = 0;
     @Override
     public void moveDown() {
+        System.out.println("cross");
 
+        if(root.getBoundsInParent().getMinY()>=400){
+            anchorPane.getChildren().remove(root);
+//////
+            anchorPane.getChildren().remove(tl);
+            //root.setVisible(false);
+            System.out.println("cross remove");
+            isVisible = false;
+        }
+        root.setLayoutY(root.getLayoutY()+20);
+        tl.setLayoutY(tl.getLayoutY()+20);
     }
 }
