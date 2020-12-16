@@ -40,14 +40,14 @@ public class TriangleObstacle extends Obstacle {
        
       //Moving to the starting point 
 //      MoveTo moveTo = new MoveTo(150, 150); 
-        
+       int dx =-15;
       //Creating 1st line 
 //      LineTo line1 = new LineTo(250, 150);
-       line = new Line(150,250,350,250);
+       line = new Line(150-dx,250,350-dx,250);
        line.setStroke(Color.BLUE);line.setStrokeWidth(15);
-       linee1 = new Line(350,250,250,250-100*1.732);
+       linee1 = new Line(350-dx,250,250-dx,250-100*1.732);
        linee1.setStroke(Color.CRIMSON);linee1.setStrokeWidth(10);
-       linee2 = new Line(250,250-100*1.732,150,250);
+       linee2 = new Line(250-dx,250-100*1.732,150-dx,250);
        linee2.setStroke(Color.YELLOW);linee2.setStrokeWidth(10);
 
 
@@ -66,18 +66,19 @@ public class TriangleObstacle extends Obstacle {
 //      path.getElements().addAll(line1, line2, line3); 
 //      path.setStroke(Color.DARKRED);path.setStrokeWidth(10);
       Path pu = new Path();
-      MoveTo moveTos = new MoveTo(140, 260);
-      LineTo line1s = new LineTo(360, 260);
-      
-      //Creating 2nd line 
-      LineTo line2s = new LineTo(250,260-110*1.732);
+
+//      MoveTo moveTos = new MoveTo(140-dx, 260);
+//      LineTo line1s = new LineTo(360-dx, 260);
+//
+//      //Creating 2nd line
+//      LineTo line2s = new LineTo(250-dx,260-110*1.732);
        
       //Creating 3rd line 
-      LineTo line3s = new LineTo(140,260);pu.getElements().add(moveTos);
-      pu.getElements().addAll(line1s,line2s,line3s);
-      
-      
-      
+//      LineTo line3s = new LineTo(140-dx,260);pu.getElements().add(moveTos);
+//      pu.getElements().addAll(line1s,line2s,line3s);
+//
+//
+//
       
       
          
@@ -92,7 +93,7 @@ public class TriangleObstacle extends Obstacle {
             new KeyFrame(Duration.ZERO, new KeyValue(root.rotateProperty(), 0, Interpolator.LINEAR)),
             new KeyFrame(Duration.seconds(4), new KeyValue(root.rotateProperty(), 360, Interpolator.LINEAR))
 //            new KeyFrame(Duration.ZERO, new KeyValue(arc2.startAngleProperty(), arc2.getStartAngle(), Interpolator.LINEAR)),
-            
+
     );
 //            ta1.play();
 //            ta1.setCycleCount(Animation.INDEFINITE);

@@ -26,6 +26,7 @@ import javafx.scene.shape.*;
          
 public class CrossObstacle extends Obstacle {
     private Rectangle line,line1,line2,line3,recs,recs1,recs2,recs3;
+    Star s1 = new Star(5,5) ;
     Group tl = new Group();
     Group root = new Group();
     AnchorPane anchorPane ;
@@ -39,24 +40,26 @@ public class CrossObstacle extends Obstacle {
    
 	@Override 
    public void addObstacle(Timeline tll,AnchorPane anchorPane) {
-	    isVisible = true;
+
+        isVisible = true;
+	    int dx = 60;
         this.anchorPane = anchorPane;
-        line = new Rectangle(120-110,160,110,15);
+        line = new Rectangle(120-dx,160,110,15);
         line.setFill(Color.BLUE);
-        line1 = new Rectangle(245-110,160,110,15);
+        line1 = new Rectangle(245-dx,160,110,15);
         line1.setFill(Color.CRIMSON);
 
-        line2 = new Rectangle(230-110,175,15,110);
+        line2 = new Rectangle(230-dx,175,15,110);
         line2.setFill(Color.YELLOW);
-        line3 = new Rectangle(230-110,50,15,110);
+        line3 = new Rectangle(230-dx,50,15,110);
         line3.setFill(Color.DARKVIOLET);
-        recs = new Rectangle(345-110,160,110,15);
+        recs = new Rectangle(345-dx,160,110,15);
         recs.setFill(Color.CRIMSON);
-        recs1 = new Rectangle(470-110,160,110,15);
+        recs1 = new Rectangle(470-dx,160,110,15);
         recs1.setFill(Color.BLUE);
-        recs2 = new Rectangle(455-110,175,15,110);
+        recs2 = new Rectangle(455-dx,175,15,110);
         recs2.setFill(Color.YELLOW);
-        recs3 = new Rectangle(455-110,50,15,110);
+        recs3 = new Rectangle(455-dx,50,15,110);
         recs3.setFill(Color.DARKVIOLET);
 
 

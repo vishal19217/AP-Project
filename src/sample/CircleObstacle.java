@@ -5,9 +5,7 @@ import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.*;
 import javafx.scene.transform.Translate;
 import javafx.util.Duration;
 
@@ -15,7 +13,7 @@ import java.util.ArrayList;
 
 public class CircleObstacle extends Obstacle {
     Arc arc1,arc2,arc3,arc4;
-
+    Star s = new Star(300,370);
     AnchorPane anchorPane;
 
 
@@ -37,29 +35,35 @@ public class CircleObstacle extends Obstacle {
     public void addObstacle(Timeline timeline, AnchorPane a){
         isVisible = true;
         this.anchorPane = a;
-        g.getChildren().addAll(arc1,arc2,arc3,arc4);
+        Group pt = s.draw();
 
+        //star
+        //Path pt = new Path();double s = 1;int k=300, p=370;
+
+        g.getChildren().addAll(arc1,arc2,arc3,arc4);
+        pt.setLayoutY(g.getLayoutY()-200);
+       // g.getChildren().add(pt);
+//        Group g2 = new Group();
+//        g2.getChildren().add(pt);;
+//        Group g1 = new Group();
+
+//        g2.setLayoutY(g1.getLayoutY()-200);
+//        g.getChildren().addAll(g1,g2);
+        //g.getChildren().add(pt);
+       // a.getChildren().add(pt);
         a.getChildren().add(g);
+        a.getChildren().add(pt);
         g.setLayoutY(g.getLayoutY()+200);
-      //  g.setVisible(false);
-       // g.translateYProperty().bind(anchorPane.heightProperty().subtract(10));
-       // System.out.println(g.getBoundsInParent());
-        //System.out.println(anchorPane.getBoundsInLocal());
-//        Translate translate = new Translate();
-//        g.getTransforms().add(translate);
-        //g.setTranslateY(-160);
-       // System.out.println(g.getLayoutX()+" "+g.getLayoutY());
+
 
 
         timeline.getKeyFrames().addAll(
                 new KeyFrame(Duration.ZERO, new KeyValue(g.rotateProperty(), 0, Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(4), new KeyValue(g.rotateProperty(), 360, Interpolator.LINEAR)));
-//                new KeyFrame(Duration.ZERO, new KeyValue(g.rotateProperty(), 0, Interpolator.LINEAR)),
-//                new KeyFrame(Duration.seconds(4), new KeyValue(g.rotateProperty(), -360, Interpolator.LINEAR)));
-//
-//        timeline1.play();
-////        timeline1.setCycleCount(Animation.INDEFINITE);
-//        g.getTransforms().addAll(translate);
+                new KeyFrame(Duration.seconds(4), new KeyValue(g.rotateProperty(), 360, Interpolator.LINEAR)),
+                new KeyFrame(Duration.ZERO, new KeyValue(pt.rotateProperty(), 0, Interpolator.LINEAR)),
+                new KeyFrame(Duration.seconds(4), new KeyValue(pt.rotateProperty(), 360, Interpolator.LINEAR)));
+
+
     }
 
     public int checkCollision(Circle ball){
@@ -118,3 +122,21 @@ public class CircleObstacle extends Obstacle {
         g.setLayoutY(g.getLayoutY()+20);
     }
 }
+
+
+//                new KeyFrame(Duration.ZERO, new KeyValue(g.rotateProperty(), 0, Interpolator.LINEAR)),
+//                new KeyFrame(Duration.seconds(4), new KeyValue(g.rotateProperty(), -360, Interpolator.LINEAR)));
+//
+//        timeline1.play();
+////        timeline1.setCycleCount(Animation.INDEFINITE);
+//        g.getTransforms().addAll(translate);
+
+
+//  g.setVisible(false);
+// g.translateYProperty().bind(anchorPane.heightProperty().subtract(10));
+// System.out.println(g.getBoundsInParent());
+//System.out.println(anchorPane.getBoundsInLocal());
+//        Translate translate = new Translate();
+//        g.getTransforms().add(translate);
+//g.setTranslateY(-160);
+// System.out.println(g.getLayoutX()+" "+g.getLayoutY());

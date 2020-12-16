@@ -29,7 +29,7 @@ class Ball {
 
     }
     public void bounceBall(){
-        ball.setLayoutY(ball.getLayoutY()-50);
+        ball.setCenterY(ball.getCenterY()-50);
     }
     public void setMyObstacle(Obstacle ob){
         this.myObstacle = ob;
@@ -57,14 +57,15 @@ class Ball {
                 time = arg0;
 
 
-                if(ball.getLayoutY()>= 575){
-                    ball.setLayoutY(575);
+                if(ball.getCenterY()>= 700){
+                    ball.setCenterY(700);
+
 
 
 
                 }
                 else{
-                    ball.setLayoutY(ball.getLayoutY()+dY);
+                    ball.setCenterY((ball.getCenterY()+dY));
                 }
                 if(check == 1 ){
                     MyScore++;

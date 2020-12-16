@@ -77,7 +77,7 @@ public class Controller implements Initializable {
     public void load_New_Game() throws IOException {
         Parent secondView;
         secondView = (StackPane) FXMLLoader.load(getClass().getResource("New_Game.fxml"));
-        Scene newScene = new Scene(secondView);
+        Scene newScene = new Scene(secondView,600,800);
         Stage curStage = (Stage) rootPane.getScene().getWindow();
         curStage.setScene(newScene);
         curStage.show();
