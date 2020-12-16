@@ -40,11 +40,12 @@ public class Star  {
         this.p = p;
     }
 
-    public Group draw()  {
+    public Path draw()  {
 //        StackPane sp = new StackPane();
 //        AnchorPane ap = new AnchorPane();
 //        sp.getChildren().add(ap);
-        Path pt = new Path();double s = 1;int k=1,p=1;
+        System.out.println("Star");
+        Path pt = new Path();double s = 1;
         MoveTo moveto = new MoveTo(k+0,p-30);
         LineTo l1 = new LineTo(k-10,p-11);
 //        LineTo l2 = new LineTo(-10,-11);
@@ -62,7 +63,7 @@ public class Star  {
         pt.getElements().addAll(l1,l3,l4,l5,l6,l7,l8,l9,l10,l2);pt.setFill(Color.GOLD);
         Group gg = new Group();
         gg.getChildren().add(pt);
-        return gg;
+        return pt;
 
 //                new KeyFrame(Duration.ZERO, new KeyValue(arc2.startAngleProperty(), arc2.getStartAngle(), Interpolator.LINEAR)),
                 

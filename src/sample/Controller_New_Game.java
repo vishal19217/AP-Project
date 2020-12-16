@@ -91,7 +91,7 @@ public class Controller_New_Game implements Initializable {
 
             //System.out.println(currentObstacle.isVisible);
             if (!currentObstacle.isVisible) {
-                System.out.println("i am moving");
+              //  System.out.println("i am moving");
 
                 changeObstacle(animation,anchor,myBall);
             }
@@ -109,7 +109,7 @@ public class Controller_New_Game implements Initializable {
     public void changeObstacle(Timeline t1,AnchorPane a,Ball myBall) {
         t++;
         currentObstacle = nextObstacle;
-        System.out.println(t);
+        //System.out.println(t);
         nextObstacle = obstacles.get(i++);
         nextObstacle.resetpos();
         myBall.setMyObstacle(currentObstacle);

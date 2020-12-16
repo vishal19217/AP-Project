@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class CircleObstacle extends Obstacle {
     Arc arc1,arc2,arc3,arc4;
-    Star s = new Star(300,370);
     AnchorPane anchorPane;
 
 
@@ -28,20 +27,24 @@ public class CircleObstacle extends Obstacle {
         this.arc2.setFill(Color.YELLOW);
         this.arc3.setFill(Color.BLUE);
         this.arc4.setFill(Color.VIOLET);
-
+        s = new Star(300,370);
 
     }
     @Override
     public void addObstacle(Timeline timeline, AnchorPane a){
         isVisible = true;
         this.anchorPane = a;
-        Group pt = s.draw();
+        Path pt = s.draw();
 
+        //a.getChildren().add(pt);
         //star
+        a.getChildren().add(pt);
         //Path pt = new Path();double s = 1;int k=300, p=370;
-
+        Group g1 = new Group();
         g.getChildren().addAll(arc1,arc2,arc3,arc4);
         pt.setLayoutY(g.getLayoutY()-200);
+        g.getChildren().addAll(pt);
+
        // g.getChildren().add(pt);
 //        Group g2 = new Group();
 //        g2.getChildren().add(pt);;
@@ -52,16 +55,16 @@ public class CircleObstacle extends Obstacle {
         //g.getChildren().add(pt);
        // a.getChildren().add(pt);
         a.getChildren().add(g);
-        a.getChildren().add(pt);
+       // a.getChildren().add(pt);
         g.setLayoutY(g.getLayoutY()+200);
 
 
 
         timeline.getKeyFrames().addAll(
                 new KeyFrame(Duration.ZERO, new KeyValue(g.rotateProperty(), 0, Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(4), new KeyValue(g.rotateProperty(), 360, Interpolator.LINEAR)),
-                new KeyFrame(Duration.ZERO, new KeyValue(pt.rotateProperty(), 0, Interpolator.LINEAR)),
-                new KeyFrame(Duration.seconds(4), new KeyValue(pt.rotateProperty(), 360, Interpolator.LINEAR)));
+                new KeyFrame(Duration.seconds(4), new KeyValue(g.rotateProperty(), 360, Interpolator.LINEAR)));
+//                new KeyFrame(Duration.ZERO, new KeyValue(pt.rotateProperty(), 0, Interpolator.LINEAR)),
+//                new KeyFrame(Duration.seconds(4), new KeyValue(pt.rotateProperty(), 360, Interpolator.LINEAR)));
 
 
     }
@@ -112,7 +115,7 @@ public class CircleObstacle extends Obstacle {
 
         //System.out.println(g.getBoundsInParent());
        // tl.setTranslateY(tl.getLayoutY()+3);
-        if(g.getLayoutY()>=380){
+        if(g.getLayoutY()>=400){
             isVisible = false;
             anchorPane.getChildren().remove(g);
             g.setLayoutY(-300);

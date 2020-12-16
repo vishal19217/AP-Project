@@ -34,9 +34,12 @@ public class TriangleObstacle extends Obstacle {
    @Override
    public void addObstacle(Timeline ta,AnchorPane anchorPane) {
       //Creating a Path
+       s = new Star(260,170);
+       Path pt = s.draw();
+     //  anchorPane.getChildren().add(pt);
        this.anchorPane = anchorPane;
        isVisible = true;
-      Path path = new Path(); 
+
        
       //Moving to the starting point 
 //      MoveTo moveTo = new MoveTo(150, 150); 
@@ -51,55 +54,16 @@ public class TriangleObstacle extends Obstacle {
        linee2.setStroke(Color.YELLOW);linee2.setStrokeWidth(10);
 
 
-
-       //Creating 2nd line
-//      LineTo line2 = new LineTo(200,150-50*1.732);       
-       
-      //Creating 3rd line 
-//      LineTo line3 = new LineTo(150,150);  
-       
-      //Creating 4th line 
-      
-       
-      //Adding all the elements to the path 
-//      path.getElements().add(moveTo); 
-//      path.getElements().addAll(line1, line2, line3); 
-//      path.setStroke(Color.DARKRED);path.setStrokeWidth(10);
-      Path pu = new Path();
-
-//      MoveTo moveTos = new MoveTo(140-dx, 260);
-//      LineTo line1s = new LineTo(360-dx, 260);
-//
-//      //Creating 2nd line
-//      LineTo line2s = new LineTo(250-dx,260-110*1.732);
-       
-      //Creating 3rd line 
-//      LineTo line3s = new LineTo(140-dx,260);pu.getElements().add(moveTos);
-//      pu.getElements().addAll(line1s,line2s,line3s);
-//
-//
-//
-      
       
          
       //Creating a Group object  
-       root.getChildren().addAll(pu,line,linee1,linee2);
-       root.setLayoutY(-300);
-      //anchorPane.getChildren().add(root);
-//      RotateTransition uu = new RotateTransition(Duration.seconds(3),root);uu.setCycleCount(RotateTransition.INDEFINITE);
-//      uu.setFromAngle(0);uu.setToAngle(360);uu.play();
+       root.getChildren().addAll(line,linee1,linee2,pt);
+
 
        ta.getKeyFrames().addAll(
             new KeyFrame(Duration.ZERO, new KeyValue(root.rotateProperty(), 0, Interpolator.LINEAR)),
-            new KeyFrame(Duration.seconds(4), new KeyValue(root.rotateProperty(), 360, Interpolator.LINEAR))
-//            new KeyFrame(Duration.ZERO, new KeyValue(arc2.startAngleProperty(), arc2.getStartAngle(), Interpolator.LINEAR)),
+            new KeyFrame(Duration.seconds(4), new KeyValue(root.rotateProperty(), 360, Interpolator.LINEAR)));
 
-    );
-//            ta1.play();
-//            ta1.setCycleCount(Animation.INDEFINITE);
-         
-      //Creating a scene object 
-               
    }
 
     @Override
@@ -154,11 +118,6 @@ public class TriangleObstacle extends Obstacle {
             anchorPane.getChildren().remove(root);
             root.setVisible(false);
             System.out.println("Traingle removed");
-          //  anchorPane.getChildren().remove(root);
-//
-            //anchorPane.getChildren().remove(tl);
-
-
         }
         root.setLayoutY(root.getLayoutY()+20);
 
