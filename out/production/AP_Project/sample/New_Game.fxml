@@ -12,19 +12,19 @@
          <image>
             <Image url="@galaxy1.jpg" />
          </image></ImageView>
-      <AnchorPane fx:id="anchor">
+      <AnchorPane fx:id="anchor" onKeyPressed="#playGameFun">
          <children>
             <Arc fx:id="arc2" centerX="170.0" centerY="230.0" fill="#ff052d00" layoutX="129.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="180.0" stroke="#f50dc7" strokeLineCap="BUTT" strokeWidth="20.0" />
             <Arc fx:id="arc3" centerX="170.0" centerY="230.0" fill="#ff090500" layoutX="129.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="90.0" stroke="#00ffee" strokeLineCap="BUTT" strokeWidth="20.0" />
             <Arc fx:id="arc4" centerX="170.0" centerY="230.0" fill="#1505ff00" layoutX="131.0" layoutY="-43.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="-90.0" stroke="#0019ff" strokeLineCap="BUTT" strokeWidth="20.0" />
             <Arc fx:id="arc1" centerX="170.0" centerY="230.0" fill="#ffff0000" layoutX="131.0" layoutY="-44.0" length="90.0" radiusX="95.0" radiusY="95.0" startAngle="360.0" stroke="YELLOW" strokeLineCap="BUTT" strokeWidth="20.0" />
-            <ImageView fitHeight="54.0" fitWidth="61.0" layoutX="517.0" layoutY="21.0" pickOnBounds="true">
+            <ImageView fx:id="image" fitHeight="54.0" fitWidth="61.0" layoutX="517.0" layoutY="21.0" onMouseClicked="#pausegame" pickOnBounds="true">
                <image>
                   <Image url="@pause.png" />
                </image></ImageView>
             <Circle fx:id="ball" centerX="270.0" centerY="700.0" fill="YELLOW" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button fx:id="playButton" layoutX="17.0" layoutY="708.0" mnemonicParsing="false" onAction="#bounceBall" prefHeight="34.0" prefWidth="82.0" text="play" />
-            <ImageView fitHeight="67.0" fitWidth="61.0" layoutX="476.0" layoutY="681.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="17.0" layoutY="708.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" text="play" />
+            <ImageView fx:id="save" fitHeight="67.0" fitWidth="61.0" layoutX="476.0" layoutY="681.0" onMouseClicked="#saveGame" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Save_Game-512.png" />
                </image>

@@ -28,6 +28,7 @@ public class CrossObstacle extends Obstacle {
     private Rectangle line,line1,line2,line3,recs,recs1,recs2,recs3;
     Star s;
     Group g= new Group();
+    public Path myStar ;
     AnchorPane anchorPane ;
     Timeline tl1 = new Timeline();
 
@@ -41,6 +42,7 @@ public class CrossObstacle extends Obstacle {
    public void addObstacle(Timeline tll,AnchorPane anchorPane) {
         s = new Star(300,170);
         Path pt = s.draw();
+        myStar = pt;
         isVisible = true;
 	    int dx = 60;
         this.anchorPane = anchorPane;
@@ -105,6 +107,9 @@ public class CrossObstacle extends Obstacle {
        // anchorPane.getChildren().add(root);
        // g.setLayoutY(-200);
         //root.setLayoutY(-200);
+        g.setLayoutY(-200);
+        s.setVisibility(true);
+        myStar.setVisible(true);
         //tl.setLayoutY();
         isVisible =true;
     }
@@ -130,6 +135,26 @@ public int checkCollision(Circle ball) {
     }
     return -1;
 }
+    @Override
+    public boolean checkStarCollision(Circle ball) {
+        if (s.isVisible()) {
+            Shape intersect = Shape.intersect(ball,myStar);
+            if(intersect.getBoundsInLocal().getWidth()!=-1){
+                s.setVisibility(false);
+                myStar.setVisible(false);
+                return true;
+
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
 public boolean checkCorrectCollision(Rectangle ls, Circle ball) {
 	if(ls.getFill()==ball.getFill()){
         return true;
@@ -143,7 +168,7 @@ public boolean checkCorrectCollision(Rectangle ls, Circle ball) {
     public void moveDown() {
         System.out.println("cross");
 
-        if(g.getBoundsInParent().getMinY()>=400){
+        if(g.getBoundsInParent().getMinY()>=550){
             anchorPane.getChildren().remove(g);
 //////
      //       anchorPane.getChildren().remove(tl);
@@ -151,7 +176,9 @@ public boolean checkCorrectCollision(Rectangle ls, Circle ball) {
           //  System.out.println("cross remove");
             isVisible = false;
         }
-       g.setLayoutY(g.getLayoutY()+20);
+        else {
+            g.setLayoutY(g.getLayoutY() + 20);
+        }
         //tl.setLayoutY(tl.getLayoutY()+20);
     }
 }

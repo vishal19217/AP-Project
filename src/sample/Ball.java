@@ -16,15 +16,21 @@ class Ball {
     private Label scoreLabel;
     private int MyScore = 0;
     private Obstacle myObstacle;
+    Mytimer t =new Mytimer();
     public Ball(Circle ball, Label scoreLabel){
       this.ball = ball;
       this.scoreLabel = scoreLabel;
 
     }
 
+    public void callTimerStop(){
+        t.stop();
+
+    }
     public void moveBall(){
-        Mytimer t = new Mytimer();
+
         t.start();
+
 
 
     }
@@ -67,9 +73,15 @@ class Ball {
                 else{
                     ball.setCenterY((ball.getCenterY()+dY));
                 }
-                if(check == 1 ){
+
+                if(myObstacle.checkStarCollision(ball)){
                     MyScore++;
                     setMyScore();
+                   // myObstacle.s.setVisibility(false);
+                }
+
+                if(check == 1 ){
+
                 }
                 else if(check == 0){
                     //System.out.println("Wrong collision");

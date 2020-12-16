@@ -29,6 +29,7 @@ public class TriangleObstacle extends Obstacle {
 	private Line line,linee1,linee2;
 	Group root = new Group();
 	public AnchorPane anchorPane;
+	public Path myStar=null;
     Timeline ta1 = new Timeline();
 
    @Override
@@ -36,6 +37,7 @@ public class TriangleObstacle extends Obstacle {
       //Creating a Path
        s = new Star(260,170);
        Path pt = s.draw();
+       myStar = pt;
      //  anchorPane.getChildren().add(pt);
        this.anchorPane = anchorPane;
        isVisible = true;
@@ -95,24 +97,47 @@ public class TriangleObstacle extends Obstacle {
         root.setLayoutY(-160);
         root.setVisible(true);
         isVisible = true;
+        myStar.setVisible(true);
+        s.setVisibility(true);
         anchorPane.getChildren().add(root);
+
     }
 
    public boolean checkCorrectCollision(Line ls,Circle ball) {
        //System.out.println(ball.getFill()+"   "+arc.getStroke());
        if(ls.getStroke()==ball.getFill()){
+
            return true;
        }
        else{
            return false;
        }
    }
+    @Override
+    public boolean checkStarCollision(Circle ball) {
+        if (s.isVisible()) {
+            Shape intersect = Shape.intersect(ball,myStar);
+            if(intersect.getBoundsInLocal().getWidth()!=-1){
+                s.setVisibility(false);
+                myStar.setVisible(false);
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
 
     @Override
     public void moveDown() {
 
         // tl.setTranslateY(tl.getLayoutY()+3);
-        if(root.getBoundsInParent().getMinY()>=400){
+        if(root.getBoundsInParent().getMinY()>=650){
 //            ta1.stop();
             isVisible = false;
             anchorPane.getChildren().remove(root);

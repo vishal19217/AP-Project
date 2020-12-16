@@ -18,6 +18,7 @@ public class CircleObstacle extends Obstacle {
 
     Timeline timeline1 = new Timeline();
     Group g = new Group();
+    Path myStar  = null;
     CircleObstacle(Arc arc1,Arc arc2,Arc arc3,Arc arc4){
         this.arc1 = arc1;
         this.arc2 = arc2;
@@ -29,13 +30,14 @@ public class CircleObstacle extends Obstacle {
         this.arc4.setFill(Color.VIOLET);
         s = new Star(300,370);
 
+
     }
     @Override
     public void addObstacle(Timeline timeline, AnchorPane a){
         isVisible = true;
         this.anchorPane = a;
         Path pt = s.draw();
-
+        myStar = pt;
         //a.getChildren().add(pt);
         //star
         a.getChildren().add(pt);
@@ -100,13 +102,35 @@ public class CircleObstacle extends Obstacle {
     }
 
     @Override
+    public boolean checkStarCollision(Circle ball) {
+        if (s.isVisible()) {
+            Shape intersect = Shape.intersect(ball,myStar);
+            if(intersect.getBoundsInLocal().getWidth()!=-1){
+                s.setVisibility(false);
+                myStar.setVisible(false);
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
+    @Override
     public void initialpos() {
    //     g.setTranslateY(200);
     }
     public void resetpos(){
         anchorPane.getChildren().add(g);
+        s.setVisibility(true);
+        myStar.setVisible(true);
         g.setLayoutY(-160);
-        g.setVisible(true);
+        s.setVisibility(true);
         isVisible = true;
     }
     @Override
@@ -115,14 +139,16 @@ public class CircleObstacle extends Obstacle {
 
         //System.out.println(g.getBoundsInParent());
        // tl.setTranslateY(tl.getLayoutY()+3);
-        if(g.getLayoutY()>=400){
+        if(g.getLayoutY()>=550){
             isVisible = false;
             anchorPane.getChildren().remove(g);
-            g.setLayoutY(-300);
+           // g.setLayoutY(-300);
             System.out.println("Circle removed");
 
         }
-        g.setLayoutY(g.getLayoutY()+20);
+        else {
+            g.setLayoutY(g.getLayoutY() + 20);
+        }
     }
 }
 

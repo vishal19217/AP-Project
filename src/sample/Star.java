@@ -35,17 +35,18 @@ import javafx.stage.Stage;
 import javafx.util.Duration;  
 public class Star  {
     int k,p;
+    Path pt = new Path();
     Star(int k,int p){
         this.k= k;
         this.p = p;
     }
-
+    public boolean v = true;
     public Path draw()  {
 //        StackPane sp = new StackPane();
 //        AnchorPane ap = new AnchorPane();
 //        sp.getChildren().add(ap);
         System.out.println("Star");
-        Path pt = new Path();double s = 1;
+        double s = 1;
         MoveTo moveto = new MoveTo(k+0,p-30);
         LineTo l1 = new LineTo(k-10,p-11);
 //        LineTo l2 = new LineTo(-10,-11);
@@ -70,6 +71,19 @@ public class Star  {
 
 
     }
+    public boolean isVisible(){
+        if(v){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public void setVisibility(boolean v){
+        this.v =v;
+
+    }
 
 
 }
+
