@@ -89,6 +89,7 @@ public class Controller_New_Game implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
 
+
         Obstacle o1 = new CircleObstacle(arc1, arc2, arc3, arc4);
         Obstacle o2 = new TriangleObstacle();
         Obstacle o3 = new CrossObstacle();

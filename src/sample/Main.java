@@ -15,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -30,6 +32,7 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo; 
 import javafx.scene.shape.Path;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main extends Application { 
@@ -42,6 +45,7 @@ public class Main extends Application {
        cg.setScene(newScene);
        System.out.println("Frontpage"+newScene);
        primaryStage.setTitle("Color Switch");
+
        System.out.println("main"+primaryStage);
        primaryStage.setScene(newScene);
        primaryStage.show();
