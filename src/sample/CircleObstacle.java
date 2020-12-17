@@ -34,30 +34,32 @@ public class CircleObstacle extends Obstacle {
     }
     @Override
     public void addObstacle(Timeline timeline, AnchorPane a){
+        //Setting the properties of the arc
+
+
+//       Arc arc = new Arc();
+//        arc.setCenterX(300.0f);
+//        arc.setCenterY(150.0f);
+//        arc.setRadiusX(10);
+//        arc.setRadiusY(10);
+//        arc.setFill(Color.RED);
+//        arc.setLength(239.0f);
+//        arc.setType(ArcType.ROUND);
+//        a.getChildren().add(arc);
+
         isVisible = true;
         this.anchorPane = a;
         Path pt = s.draw();
         myStar = pt;
-        //a.getChildren().add(pt);
-        //star
+
         a.getChildren().add(pt);
-        //Path pt = new Path();double s = 1;int k=300, p=370;
+
         Group g1 = new Group();
         g.getChildren().addAll(arc1,arc2,arc3,arc4);
         pt.setLayoutY(g.getLayoutY()-200);
         g.getChildren().addAll(pt);
-
-       // g.getChildren().add(pt);
-//        Group g2 = new Group();
-//        g2.getChildren().add(pt);;
-//        Group g1 = new Group();
-
-//        g2.setLayoutY(g1.getLayoutY()-200);
-//        g.getChildren().addAll(g1,g2);
-        //g.getChildren().add(pt);
-       // a.getChildren().add(pt);
         a.getChildren().add(g);
-       // a.getChildren().add(pt);
+
         g.setLayoutY(g.getLayoutY()+200);
 
 
@@ -65,8 +67,7 @@ public class CircleObstacle extends Obstacle {
         timeline.getKeyFrames().addAll(
                 new KeyFrame(Duration.ZERO, new KeyValue(g.rotateProperty(), 0, Interpolator.LINEAR)),
                 new KeyFrame(Duration.seconds(4), new KeyValue(g.rotateProperty(), 360, Interpolator.LINEAR)));
-//                new KeyFrame(Duration.ZERO, new KeyValue(pt.rotateProperty(), 0, Interpolator.LINEAR)),
-//                new KeyFrame(Duration.seconds(4), new KeyValue(pt.rotateProperty(), 360, Interpolator.LINEAR)));
+
 
 
     }
@@ -92,7 +93,7 @@ public class CircleObstacle extends Obstacle {
     }
 
     public boolean checkCorrectCollision(Arc arc,Circle ball) {
-        //System.out.println(ball.getFill()+"   "+arc.getStroke());
+
         if(arc.getStroke()==ball.getFill()){
             return true;
         }
@@ -123,7 +124,7 @@ public class CircleObstacle extends Obstacle {
 
     @Override
     public void initialpos() {
-   //     g.setTranslateY(200);
+
     }
     public void resetpos(){
         anchorPane.getChildren().add(g);
@@ -137,12 +138,10 @@ public class CircleObstacle extends Obstacle {
     public void moveDown() {
 
 
-        //System.out.println(g.getBoundsInParent());
-       // tl.setTranslateY(tl.getLayoutY()+3);
+
         if(g.getLayoutY()>=550){
             isVisible = false;
             anchorPane.getChildren().remove(g);
-           // g.setLayoutY(-300);
             System.out.println("Circle removed");
 
         }

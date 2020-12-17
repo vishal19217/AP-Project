@@ -46,6 +46,8 @@ public class Controller_New_Game implements Initializable {
     Label scoreLabel;
     @FXML
     ImageView image;
+    Scene myScene;
+    Scene parentScene;
     Label ll = new Label();
     int flag = 0;
     int i = 0;
@@ -54,6 +56,21 @@ public class Controller_New_Game implements Initializable {
     public Timeline animation = new Timeline();
 
     public Ball myBall = null;
+    public  void setScene(Scene scene){
+        this.myScene = scene;
+
+    }
+    public Scene getScene(){
+        return myScene;
+    }
+
+    public void setParentScene(Scene scene){
+        this.parentScene = scene;
+    }
+    public Scene getParentScene(){
+        return parentScene;
+    }
+
 
     public StackPane getStackPane() {
         return stackPane;
@@ -139,12 +156,27 @@ public class Controller_New_Game implements Initializable {
         }
         if(myBall.isCollision()){
             animation.stop();
-            Parent secondView;
-            secondView = (StackPane) FXMLLoader.load(getClass().getResource("ObstacleHit.fxml"));
-            Scene newScene = new Scene(secondView,600,800);
-            Stage curStage = (Stage) stackPane.getScene().getWindow();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ObstacleHit.fxml"));
+            Scene newScene  = new Scene(loader.load(),600,800);
+            Stage curStage = (Stage) myScene.getWindow();
+            Controller_ObstacleHit cg = loader.getController();
+            cg.setMyScene(newScene);
+            cg.setParentScene(this.myScene);
+            cg.setStage(curStage);
+            cg.setFrontScene(this.parentScene);
+           // System.out.println();
+            System.out.println(" Controller_new_game:-"+curStage);
             curStage.setScene(newScene);
             curStage.show();
+
+//            Parent secondView;
+//            secondView = (StackPane) FXMLLoader.load(getClass().getResource("ObstacleHit.fxml"));
+//            Scene newScene = new Scene(secondView,600,800);
+//            Stage curStage = (Stage) stackPane.getScene().getWindow();
+//            curStage.close();
+//            curStage.setScene(newScene);
+//            curStage.show();
         }
 
 

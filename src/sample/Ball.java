@@ -36,6 +36,7 @@ class Ball {
         t.stop();
 
     }
+
     public void moveBall(){
 
         t.start();

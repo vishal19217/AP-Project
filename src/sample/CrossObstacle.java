@@ -65,10 +65,6 @@ public class CrossObstacle extends Obstacle {
         recs3.setFill(Color.DARKVIOLET);
 
 
-//        root.setLayoutY(root.getLayoutY()-400);
-//        tl.setLayoutY(tl.getLayoutY()-400);
-
-
         Group tl = new Group();
         Group root = new Group();
         tl.getChildren().addAll(recs,recs1,recs2,recs3);
@@ -94,19 +90,11 @@ public class CrossObstacle extends Obstacle {
 
 
 
-
-
-
-//        System.out.println("cross");
-       /// anchorPane.getChildren().add(root);
-        //anchorPane.getChildren().add(tl);
     }
     public void resetpos(){
-       // System.out.println("mei cross hu");
+
         anchorPane.getChildren().add(g);
-       // anchorPane.getChildren().add(root);
-       // g.setLayoutY(-200);
-        //root.setLayoutY(-200);
+
         g.setLayoutY(-200);
         s.setVisibility(true);
         myStar.setVisible(true);
@@ -166,14 +154,11 @@ public boolean checkCorrectCollision(Rectangle ls, Circle ball) {
     int tot_distance = 0;
     @Override
     public void moveDown() {
-        System.out.println("cross");
+
 
         if(g.getBoundsInParent().getMinY()>=550){
             anchorPane.getChildren().remove(g);
-//////
-     //       anchorPane.getChildren().remove(tl);
-            //root.setVisible(false);
-          //  System.out.println("cross remove");
+
             isVisible = false;
         }
         else {
@@ -183,6 +168,6 @@ public boolean checkCorrectCollision(Rectangle ls, Circle ball) {
                 g.setLayoutY(g.getLayoutY()+35);
             }
         }
-        //tl.setLayoutY(tl.getLayoutY()+20);
+
     }
 }

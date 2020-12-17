@@ -35,10 +35,22 @@ import java.io.IOException;
 public class Main extends Application { 
    @Override 
    public void start(Stage primaryStage) throws IOException {
-       Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-       primaryStage.setTitle("Hello World");
-       primaryStage.setScene(new Scene(root, 600, 800));
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+       Scene newScene  = new Scene(loader.load(),600,800);
+
+       Controller  cg = loader.getController();
+       cg.setScene(newScene);
+       System.out.println("Frontpage"+newScene);
+       primaryStage.setTitle("Color Switch");
+       System.out.println("main"+primaryStage);
+       primaryStage.setScene(newScene);
        primaryStage.show();
+
+
+//       Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+//       primaryStage.setTitle("Hello World");
+//       primaryStage.setScene(new Scene(root, 600, 800));
+//       primaryStage.show();
    }
    
    

@@ -39,6 +39,13 @@ public class Controller implements Initializable {
 
     @FXML
     private StackPane rootPane;
+    private Scene myScene;
+    public void setScene(Scene myScene){
+        this.myScene = myScene;
+    }
+    public Scene getScene(){
+        return myScene;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -75,12 +82,26 @@ public class Controller implements Initializable {
         });
     }
     public void load_New_Game() throws IOException {
-        Parent secondView;
-        secondView = (StackPane) FXMLLoader.load(getClass().getResource("New_Game.fxml"));
-        Scene newScene = new Scene(secondView,600,800);
+//        Parent secondView;
+//        secondView = (StackPane) FXMLLoader.load(getClass().getResource("New_Game.fxml"));
+//
+//
+//        Scene newScene = new Scene(secondView,600,800);
+//        Stage curStage = (Stage) rootPane.getScene().getWindow();
+//        //curStage.close();
+//        curStage.setScene(newScene);
+//        curStage.show();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("New_Game.fxml"));
+        Scene newScene  = new Scene(loader.load());
         Stage curStage = (Stage) rootPane.getScene().getWindow();
+        Controller_New_Game cg = loader.getController();
+        cg.setScene(newScene);
+        cg.setParentScene(this.myScene);
+        System.out.println(" Controller"+curStage);
         curStage.setScene(newScene);
         curStage.show();
+
 
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 //        primaryStage.setTitle("Hello World");

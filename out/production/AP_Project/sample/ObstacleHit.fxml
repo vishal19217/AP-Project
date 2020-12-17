@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_ObstacleHit">
    <children>
       <ImageView fitHeight="800.0" fitWidth="600.0" pickOnBounds="true">
          <image>
@@ -36,7 +36,7 @@
                <image>
                   <Image url="@Restart_logo.jpg" />
                </image></ImageView>
-            <ImageView fitHeight="72.0" fitWidth="77.0" layoutX="1.0" layoutY="15.0" pickOnBounds="true">
+            <ImageView fitHeight="72.0" fitWidth="77.0" layoutX="1.0" layoutY="15.0" onMouseClicked="#exitGame" pickOnBounds="true">
                <image>
                   <Image url="@ExitGameLogo.jpg" />
                </image></ImageView>
