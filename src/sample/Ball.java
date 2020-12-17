@@ -27,7 +27,7 @@ class Ball {
     private int MyScore = 0;
     private Obstacle myObstacle;
     private ArrayList<Color>colorArrayList  = new ArrayList<Color>();
-    int i=0;
+    int i=2;
     Mytimer t =new Mytimer();
     public Ball(Circle ball, Label scoreLabel){
       this.ball = ball;
@@ -77,7 +77,7 @@ class Ball {
 
 
             ball.setFill(colorArrayList.get(i));
-
+            i++;
             return true;
         }
         else

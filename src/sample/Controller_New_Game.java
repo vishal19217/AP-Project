@@ -47,6 +47,7 @@ public class Controller_New_Game implements Initializable {
     @FXML
     ImageView image;
     Circle c;
+
     static FXMLLoader loader=null;
     Scene myScene;
     Scene parentScene;
@@ -183,6 +184,9 @@ public class Controller_New_Game implements Initializable {
             cg.setMyScene(newScene);
             cg.setParentScene(this.myScene);
             cg.setStage(curStage);
+            System.out.println("Score"+myBall.getMyScore());
+            cg.setScore(myBall.getMyScore());
+
 
             cg.setNewGameLoader(loader);
             cg.setFrontScene(this.parentScene);

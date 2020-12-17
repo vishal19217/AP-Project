@@ -27,9 +27,9 @@
                   <Glow />
                </effect>
             </Label>
-            <Label alignment="CENTER" layoutX="7.0" layoutY="238.0" prefHeight="44.0" prefWidth="591.0" text="ScoreDisplay" textFill="#ea0101">
+            <Label fx:id="scorepanel" alignment="CENTER" layoutX="7.0" layoutY="238.0" prefHeight="44.0" prefWidth="591.0" text="ScoreDisplay" textFill="#ea0101">
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
             <ImageView fitHeight="97.0" fitWidth="98.0" layoutX="25.0" layoutY="366.0" onMouseClicked="#exitGame" pickOnBounds="true">

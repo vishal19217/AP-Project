@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -15,8 +16,12 @@ import java.util.ResourceBundle;
 public class Controller_ObstacleHit implements Initializable {
     @FXML
     StackPane stackPane;
+    @FXML
+    Label scorepanel;
     Scene myScene,parentScene,frontScene;
     Stage stage;
+    int score;
+
     FXMLLoader loader;
     public void setMyScene(Scene scene){
         this.myScene = scene;
@@ -33,7 +38,14 @@ public class Controller_ObstacleHit implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
     }
+
+    public void setScore(int score) {
+        this.score = score;
+        scorepanel.setText(Integer.toString(score));
+    }
+
     public void exitGame() throws IOException {
         Parent secondView;;
 
