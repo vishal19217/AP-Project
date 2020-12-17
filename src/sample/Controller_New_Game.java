@@ -46,6 +46,8 @@ public class Controller_New_Game implements Initializable {
     Label scoreLabel;
     @FXML
     ImageView image;
+    Circle c;
+    static FXMLLoader loader=null;
     Scene myScene;
     Scene parentScene;
     Label ll = new Label();
@@ -56,6 +58,10 @@ public class Controller_New_Game implements Initializable {
     public Timeline animation = new Timeline();
 
     public Ball myBall = null;
+    public static  void setLoader(FXMLLoader loader1){
+        if(loader==null)
+        loader = loader1;
+    }
     public  void setScene(Scene scene){
         this.myScene = scene;
 
@@ -128,6 +134,8 @@ public class Controller_New_Game implements Initializable {
 
     public void changeObstacle(Timeline t1, AnchorPane a, Ball myBall) {
         t++;
+        c= new Circle(10,300,10,Color.WHITE);
+        anchor.getChildren().add(c);
         currentObstacle = nextObstacle;
         //System.out.println(t);
         nextObstacle = obstacles.get(i++);
@@ -156,27 +164,25 @@ public class Controller_New_Game implements Initializable {
         }
         if(myBall.isCollision()){
             animation.stop();
+            myBall.callTimerStop();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ObstacleHit.fxml"));
-            Scene newScene  = new Scene(loader.load(),600,800);
+            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("ObstacleHit.fxml"));
+            Scene newScene  = new Scene(loader1.load(),600,800);
             Stage curStage = (Stage) myScene.getWindow();
-            Controller_ObstacleHit cg = loader.getController();
+            Controller_ObstacleHit cg = loader1.getController();
             cg.setMyScene(newScene);
             cg.setParentScene(this.myScene);
             cg.setStage(curStage);
+
+            cg.setNewGameLoader(loader);
             cg.setFrontScene(this.parentScene);
-           // System.out.println();
+            System.out.println("curStage"+curStage);
             System.out.println(" Controller_new_game:-"+curStage);
+            System.out.println("controller_newgame"+loader);
             curStage.setScene(newScene);
             curStage.show();
 
-//            Parent secondView;
-//            secondView = (StackPane) FXMLLoader.load(getClass().getResource("ObstacleHit.fxml"));
-//            Scene newScene = new Scene(secondView,600,800);
-//            Stage curStage = (Stage) stackPane.getScene().getWindow();
-//            curStage.close();
-//            curStage.setScene(newScene);
-//            curStage.show();
+
         }
 
 
@@ -200,7 +206,7 @@ public class Controller_New_Game implements Initializable {
         ll.setLayoutY(20);
         ll.setLayoutX(100);
         ll.setTextFill(Color.BLACK);
-//        Pau.setFitWidth(57);
+
         Pau.fitHeightProperty();
         Pau.autosize();
         myBall.callTimerStop();
@@ -208,8 +214,7 @@ public class Controller_New_Game implements Initializable {
         ap.getChildren().addAll(Pau);
         stackPane.getChildren().add(ap);
 
-//    	Pau.setLayoutX(300);
-//    	Pau.setLayoutY(400);
+
         Pau.setOnMouseClicked(
 
                 event -> {
@@ -232,19 +237,3 @@ public class Controller_New_Game implements Initializable {
 }
 
 
-//        playButton.setOnAction(event -> {
-//            boolean isPressed = bounceBall();
-//            myBall.bounceBall();
-//           currentObstacle.moveDown();
-//
-//            nextObstacle.moveDown();
-//           // int f = 0;
-//
-//            //System.out.println(currentObstacle.isVisible);
-//            if (!currentObstacle.isVisible) {
-//              //  System.out.println("i am moving");
-//
-//                changeObstacle(animation,anchor,myBall);
-//            }
-//
-//        });

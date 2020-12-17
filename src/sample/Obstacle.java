@@ -5,6 +5,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 
 public abstract class  Obstacle {
+
     public boolean isVisible = true;
     public Star s;
     public abstract void addObstacle(Timeline t1, AnchorPane a);

@@ -17,6 +17,7 @@ public class Controller_ObstacleHit implements Initializable {
     StackPane stackPane;
     Scene myScene,parentScene,frontScene;
     Stage stage;
+    FXMLLoader loader;
     public void setMyScene(Scene scene){
         this.myScene = scene;
     }
@@ -45,4 +46,29 @@ public class Controller_ObstacleHit implements Initializable {
         curStage.show();
 
     }
+    public void setNewGameLoader(FXMLLoader loader) {
+        this.loader = loader;
+    }
+    public void newGame()throws IOException{
+
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("New_Game.fxml"));
+//        Scene newScene  = new Scene(loader.load());
+//        Stage curStage = (Stage) rootPane.getScene().getWindow();
+//        Controller_New_Game cg = loader.getController();
+//        cg.setScene(newScene);
+//        cg.setParentScene(this.myScene);
+
+       FXMLLoader loader  = new FXMLLoader(getClass().getResource("New_Game.fxml"));
+        System.out.println("obstaclehit" +loader);
+
+        Scene scene = new Scene(loader.load(),600,800);
+                //  System.out.println("frontScene:-"+frontScene);
+        //System.out.println(curStage);
+        Stage curStage  = stage;
+        curStage.setScene(scene);
+
+        curStage.show();
+    }
+
+
 }

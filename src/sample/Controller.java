@@ -96,7 +96,9 @@ public class Controller implements Initializable {
         Scene newScene  = new Scene(loader.load());
         Stage curStage = (Stage) rootPane.getScene().getWindow();
         Controller_New_Game cg = loader.getController();
+        System.out.println("controllerloader"+loader);
         cg.setScene(newScene);
+        cg.setLoader(loader);
         cg.setParentScene(this.myScene);
         System.out.println(" Controller"+curStage);
         curStage.setScene(newScene);

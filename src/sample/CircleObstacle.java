@@ -29,23 +29,14 @@ public class CircleObstacle extends Obstacle {
         this.arc3.setFill(Color.BLUE);
         this.arc4.setFill(Color.VIOLET);
         s = new Star(300,370);
-
-
+        //this.arc1.setStroke();
+        //
     }
     @Override
     public void addObstacle(Timeline timeline, AnchorPane a){
         //Setting the properties of the arc
 
 
-//       Arc arc = new Arc();
-//        arc.setCenterX(300.0f);
-//        arc.setCenterY(150.0f);
-//        arc.setRadiusX(10);
-//        arc.setRadiusY(10);
-//        arc.setFill(Color.RED);
-//        arc.setLength(239.0f);
-//        arc.setType(ArcType.ROUND);
-//        a.getChildren().add(arc);
 
         isVisible = true;
         this.anchorPane = a;
@@ -54,11 +45,14 @@ public class CircleObstacle extends Obstacle {
 
         a.getChildren().add(pt);
 
+        //c.setVisible(true);
         Group g1 = new Group();
         g.getChildren().addAll(arc1,arc2,arc3,arc4);
         pt.setLayoutY(g.getLayoutY()-200);
+        //c.setCenterY(pt.getLayoutY()+30);
         g.getChildren().addAll(pt);
-        a.getChildren().add(g);
+        a.getChildren().addAll(g);
+        //a.getChildren().add(c);
 
         g.setLayoutY(g.getLayoutY()+200);
 
@@ -157,19 +151,3 @@ public class CircleObstacle extends Obstacle {
 }
 
 
-//                new KeyFrame(Duration.ZERO, new KeyValue(g.rotateProperty(), 0, Interpolator.LINEAR)),
-//                new KeyFrame(Duration.seconds(4), new KeyValue(g.rotateProperty(), -360, Interpolator.LINEAR)));
-//
-//        timeline1.play();
-////        timeline1.setCycleCount(Animation.INDEFINITE);
-//        g.getTransforms().addAll(translate);
-
-
-//  g.setVisible(false);
-// g.translateYProperty().bind(anchorPane.heightProperty().subtract(10));
-// System.out.println(g.getBoundsInParent());
-//System.out.println(anchorPane.getBoundsInLocal());
-//        Translate translate = new Translate();
-//        g.getTransforms().add(translate);
-//g.setTranslateY(-160);
-// System.out.println(g.getLayoutX()+" "+g.getLayoutY());

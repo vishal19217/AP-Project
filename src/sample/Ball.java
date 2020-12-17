@@ -53,6 +53,12 @@ class Ball {
     public int getMyScore(){
         return MyScore;
     }
+    public double getX(){
+        return ball.getLayoutX();
+    }
+    public double getY(){
+        return ball.getLayoutY();
+    }
     public void setMyScore(){
         scoreLabel.setText(Integer.toString(MyScore));
     }
