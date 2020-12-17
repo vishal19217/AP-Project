@@ -177,7 +177,11 @@ public boolean checkCorrectCollision(Rectangle ls, Circle ball) {
             isVisible = false;
         }
         else {
+            if(s.isVisible())
             g.setLayoutY(g.getLayoutY() + 20);
+            else{
+                g.setLayoutY(g.getLayoutY()+35);
+            }
         }
         //tl.setLayoutY(tl.getLayoutY()+20);
     }

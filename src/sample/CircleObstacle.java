@@ -147,8 +147,13 @@ public class CircleObstacle extends Obstacle {
 
         }
         else {
+            if(s.isVisible())
             g.setLayoutY(g.getLayoutY() + 20);
+            else{
+                g.setLayoutY(g.getLayoutY()+35);
+            }
         }
+
     }
 }
 

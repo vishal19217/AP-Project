@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="600.0" pickOnBounds="true">
+         <image>
+            <Image url="@black.png" />
+         </image></ImageView>
+      <AnchorPane>
+         <children>
+            <ImageView fitHeight="166.0" fitWidth="484.0" layoutX="79.0" layoutY="4.0" pickOnBounds="true">
+               <image>
+                  <Image url="@color_Switch_logo2.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="174.0" prefHeight="54.0" prefWidth="591.0" text="SCORE" textAlignment="JUSTIFY" textFill="#fdfafa" wrapText="true">
+               <font>
+                  <Font name="Courier New Bold" size="36.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <Label alignment="CENTER" layoutX="7.0" layoutY="238.0" prefHeight="44.0" prefWidth="591.0" text="ScoreDisplay" textFill="#ea0101">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="97.0" fitWidth="98.0" layoutX="25.0" layoutY="366.0" pickOnBounds="true">
+               <image>
+                  <Image url="@Restart_logo.jpg" />
+               </image></ImageView>
+            <ImageView fitHeight="72.0" fitWidth="77.0" layoutX="1.0" layoutY="15.0" pickOnBounds="true">
+               <image>
+                  <Image url="@ExitGameLogo.jpg" />
+               </image></ImageView>
+            <ImageView fitHeight="97.0" fitWidth="131.0" layoutX="351.0" layoutY="359.0" pickOnBounds="true">
+               <image>
+                  <Image url="@continue_to_play.jpg" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </children>
+</StackPane>

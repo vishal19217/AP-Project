@@ -1,12 +1,19 @@
 package sample;
 
 import javafx.animation.AnimationTimer;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.getExponent;
@@ -14,11 +21,13 @@ import static java.lang.Math.getExponent;
 class Ball {
     private final Circle ball;
     private Label scoreLabel;
+    private  boolean collision;
     private int MyScore = 0;
     private Obstacle myObstacle;
     Mytimer t =new Mytimer();
     public Ball(Circle ball, Label scoreLabel){
       this.ball = ball;
+      collision = false;
       this.scoreLabel = scoreLabel;
 
     }
@@ -84,10 +93,18 @@ class Ball {
 
                 }
                 else if(check == 0){
+
+                    t.stop();
+                    collision = true;
+
                     //System.out.println("Wrong collision");
                 }
 
             }
         }
+    }
+
+    public boolean isCollision() {
+        return collision;
     }
 }

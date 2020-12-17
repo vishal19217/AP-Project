@@ -144,7 +144,10 @@ public class TriangleObstacle extends Obstacle {
             root.setVisible(false);
             System.out.println("Traingle removed");
         }
-        root.setLayoutY(root.getLayoutY()+20);
+        if(s.isVisible())
+            root.setLayoutY(root.getLayoutY()+20);
+        else
+            root.setLayoutY((root.getLayoutY()+35));
 
     }
 }
