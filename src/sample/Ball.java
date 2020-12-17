@@ -8,12 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.getExponent;
@@ -24,11 +26,16 @@ class Ball {
     private  boolean collision;
     private int MyScore = 0;
     private Obstacle myObstacle;
+    private ArrayList<Color>colorArrayList  = new ArrayList<Color>();
+    int i=0;
     Mytimer t =new Mytimer();
     public Ball(Circle ball, Label scoreLabel){
       this.ball = ball;
       collision = false;
       this.scoreLabel = scoreLabel;
+      colorArrayList.add(Color.CRIMSON);
+        colorArrayList.add(Color.BLUE);
+        colorArrayList.add(Color.YELLOW);
 
     }
 
@@ -58,6 +65,25 @@ class Ball {
     }
     public double getY(){
         return ball.getLayoutY();
+    }
+    public boolean checkColCir(Circle c){
+
+        Shape intersect = Shape.intersect(ball,c);
+        if(intersect.getBoundsInLocal().getWidth()!=-1){
+            if(i==3){
+                i=0;
+            }
+
+
+
+            ball.setFill(colorArrayList.get(i));
+
+            return true;
+        }
+        else
+            return false;
+
+
     }
     public void setMyScore(){
         scoreLabel.setText(Integer.toString(MyScore));

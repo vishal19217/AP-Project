@@ -101,6 +101,9 @@ public class Controller_New_Game implements Initializable {
         obstacles.add(o3);
         o3.addObstacle(animation, anchor);
 
+
+
+
         i = 0;
         currentObstacle = obstacles.get((i++));
 
@@ -116,8 +119,11 @@ public class Controller_New_Game implements Initializable {
             i = 0;
         }
         myBall = new Ball(ball, scoreLabel);
-
         myBall.setMyObstacle(currentObstacle);
+        int x = (int) myBall.getX();
+        c= new Circle(270,220,10,Color.AZURE);
+        anchor.getChildren().add(c);
+
         // for moving ball and detecting ball bounce when playButton is pressed
         myBall.moveBall();
 
@@ -134,8 +140,11 @@ public class Controller_New_Game implements Initializable {
 
     public void changeObstacle(Timeline t1, AnchorPane a, Ball myBall) {
         t++;
-        c= new Circle(10,300,10,Color.WHITE);
+        anchor.getChildren().remove(c);
+        c= new Circle(270,220,10,Color.AZURE);
         anchor.getChildren().add(c);
+
+        //anchor.getChildren().add(c);
         currentObstacle = nextObstacle;
         //System.out.println(t);
         nextObstacle = obstacles.get(i++);
@@ -150,9 +159,10 @@ public class Controller_New_Game implements Initializable {
 
     public void playGameFun() throws IOException {
         boolean isPressed = bounceBall();
+        c.setLayoutY(c.getLayoutY()+20);
         myBall.bounceBall();
         currentObstacle.moveDown();
-
+        boolean ar = myBall.checkColCir(c);
         nextObstacle.moveDown();
         // int f = 0;
 
